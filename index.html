@@ -61,6 +61,13 @@
         column-count: 3;
       }
 
+      #cocktails img {
+        width: 30%;
+        margin: 5px;
+        margin-bottom: 15px;
+        border: solid black 1px;
+      }
+
 		</style>
 	</head>
 	<body>
@@ -94,8 +101,14 @@
         </p>
 
         <p class="signature">
-            --YourFriendlyBarkeep,</br>Avel
+            --YourFriendlyBarkeep,<br/>
+            Avel<br/>
+            <a href="tel:206.291.8118">206.291.8118</a></br/>
+            <a href="mailto:foodbarbrand@gmail.com">foodbarbrand@gmail.com</a>
         </p>
+
+        <h2>Cocktails</h2>
+        <div id="cocktails"></div>
 
         <h2>Job History 1985-2021</h2>
         <ul>
@@ -134,7 +147,109 @@
           <li>The Blue Heron</li>
           <li>Cloud Cliff Bakery</li>
         </ul>
+
+        <h2>References</h2>
+
+        <p>
+          Bernice Acosta <br/>
+          Accountant / Blue Origin<br/>
+          <a href="mailto:bernice.a.acosta@gmail.com">
+            bernice.a.acosta@gmail.com
+          </a>
+        </p>
+
+        <p>
+          Chris Mcdaneld<br/>
+          Bar Manager / ElBorracho<br/>
+          <a href="mailto:mcdaneldchris@gmail.com">
+            mcdaneldchris@gmail.com
+          </a>
+        </p>
+
+        <p>
+          Joshua Masterson<br/>
+          Architect / Masterson Studio<br/>
+          <a href="mailto:joshua@mastersonstudio.com">
+            joshua@mastersonstudio.com
+          </a>
+        </p>
+
+        <p>
+          Leslie Smith<br/>
+          Licensed Master Esthetician<br/>
+          <a href="mailto:laserleslie1972@gmail.com">
+            laserleslie1972@gmail.com
+          </a>
+        </p>
+
+        <p>
+          Julie Mcfarland<br/>
+          Homeless Systems Technical Assistance Provider<br/>
+          <a href="mailto:Jmcfarlandconsulting@outlook.com">
+            Jmcfarlandconsulting@outlook.com
+          </a>
+        </p>
+
+        <p>
+          Steve Geluso<br/>
+          Teacher, Software Engineer / Apple<br/>
+          <a href="mailto:stevegeluso@gmail.com">
+            stevegeluso@gmail.com
+          </a>
+        </p>
       </div>
 		</div>
 	</body>
+
+  <script>
+    const vertical_images = [
+      "IMG_0084.HEIC.jpeg",
+      "IMG_0688.HEIC.jpeg",
+      "IMG_2189.HEIC.jpeg",
+      "IMG_2248.HEIC.jpeg",
+      "IMG_2275.HEIC.jpeg",
+      "IMG_2981.HEIC.jpeg",
+      "IMG_4069.HEIC.jpeg",
+      "IMG_4080.HEIC.jpeg",
+      "IMG_4363.HEIC.jpeg",
+      "IMG_5055.HEIC.jpeg",
+      "IMG_5591.HEIC.jpeg",
+      "IMG_7123.HEIC.jpeg",
+      "IMG_7278.HEIC.jpeg",
+      "IMG_7319.HEIC.jpeg",
+      "IMG_7416.HEIC.jpeg",
+      "IMG_7549.HEIC.jpeg",
+      "IMG_7728.HEIC.jpeg",
+      "IMG_7800.HEIC.jpeg",
+    ];
+
+    const horizontal_images = [
+      "IMG_7979.HEIC.jpeg",
+      "IMG_0142.HEIC.jpeg",
+      "IMG_2262.HEIC.jpeg",
+      "IMG_4411.HEIC.jpeg",
+      "IMG_5503.HEIC.jpeg",
+      "IMG_5771.HEIC.jpeg",
+      "IMG_7386.HEIC.jpeg",
+      "IMG_7703.HEIC.jpeg",
+      "IMG_7726.HEIC.jpeg",
+    ];
+
+    const target_list = Math.random() < .5 ? vertical_images : horizontal_images;
+    const chosen = [];
+    while (chosen.length < 3) {
+      const index = Math.floor(Math.random() * target_list.length);
+      const image = target_list[index];
+      if (chosen.indexOf(image) < 0) {
+        chosen.push(image);
+      }
+    }
+
+    chosen.forEach(image => {
+      let img = document.createElement('img');
+      img.src = "./images/scaled/" + image;
+      cocktails.appendChild(img);
+    })
+
+  </script>
 </html>
